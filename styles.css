@@ -1,0 +1,610 @@
+/* Reset básico para remover margens e paddings padrão */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilos globais */
+body {
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background: linear-gradient(135deg, #006400, #FFD700, #00008B);
+}
+
+/* Cabeçalho */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.9);
+}
+
+/* Logo no cabeçalho */
+header .logo img {
+  width: 80px;
+  height: 80px;
+  /*border-radius: 50%;*/
+}
+
+/* Navegação */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+/* Botão do WhatsApp no cabeçalho */
+.btn-whatsapp {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #25D366;
+  color: #000;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+  animation: pulse 1s infinite; /* Pulsação automática */
+}
+
+.btn-whatsapp:hover {
+  background-color: #306300;
+}
+
+/* Botão CTA principal */
+.cta-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #25D366;
+  color: #000;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+  animation: pulse 1s infinite; /* Pulsação automática */
+}
+
+.cta-button:hover {
+  background-color: #306300;
+}
+
+/* Seção Hero */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px;
+  background: rgb(0, 0, 0);
+  margin: 20px;
+  border-radius: 10px;
+  gap: 100px; /* Adiciona espaço entre o conteúdo e a imagem */
+}
+
+/* Conteúdo da seção Hero */
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: bolder;
+  color: #FFD700;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: #f9f9f9;
+}
+
+/* Imagem da seção Hero */
+.hero-image img {
+  max-width: 60%;
+  border-radius: 20px;
+}
+
+/* RESPONSIVIDADE - HERO */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    gap: 20px; /* Reduz o espaço entre o conteúdo e a imagem */
+    padding: 20px;
+  }
+  .hero-content h1 {
+    font-size: 1.8rem; /* Título menor */
+  }
+  .hero-content p {
+    font-size: 0.9rem; /* Texto menor */
+  }
+  .hero-image img {
+    max-width: 80%; /* Imagem ocupa menos espaço */
+    margin-top: 20px;
+  }
+}
+
+/* Estilo para a lista de benefícios */
+.hero-benefits {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+.hero-benefits p {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #FFD700;
+  margin-bottom: 15px;
+}
+
+.hero-benefits ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.hero-benefits ul li {
+  font-size: 1.1rem;
+  color: #f9f9f9;
+  margin-bottom: 10px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.hero-benefits ul li::before {
+  content: "✔️";
+  position: absolute;
+  left: 0;
+  color: #FFD700;
+}
+
+/* Seção Sobre o Curso */
+.sobre-curso {
+  padding: 50px 20px;
+  background: rgb(0, 0, 0);
+  margin: 20px;
+  border-radius: 10px;
+}
+
+.sobre-curso h2 {
+  margin-bottom: 20px;
+  color: #f9f9f9;
+  justify-self: center;
+}
+
+.sobre-curso ul {
+  list-style: none;
+  color: #f9f9f9;
+}
+
+.sobre-curso ul li {
+  margin-bottom: 10px;
+}
+
+/* RESPONSIVIDADE - SOBRE O CURSO */
+@media (max-width: 768px) {
+  .sobre-curso h2 {
+    font-size: 1.5rem; /* Título menor */
+  }
+  .sobre-curso ul li {
+    font-size: 0.9rem; /* Texto menor */
+  }
+}
+
+/* Seção de Vídeo */
+.video {
+  padding: 50px 20px;
+  background: rgb(0, 0, 0);
+  margin: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.video h2 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+  color: #ffffff;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.video-container iframe {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9; /* Mantém a proporção de 16:9 */
+  border-radius: 10px;
+}
+
+/* RESPONSIVIDADE - VIDEO */
+@media (max-width: 768px) {
+  .video h2 {
+    font-size: 1.5rem; /* Título menor */
+  }
+  .video-container iframe {
+    width: 100%; /* Ocupa toda a largura disponível */
+    height: auto;
+  }
+}
+
+/* Estilo para a seção de documentos */
+#documentos {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+#documentos h2 {
+  margin-bottom: 30px;
+}
+
+.documentos-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.documento-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #000;
+  border-radius: 10px;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.documento-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.documento-item p {
+  font-size: 14px;
+  color: #f70000;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .documentos-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .documento-item {
+    width: 90%;
+  }
+}
+
+/* Seção de Incentivo à Matrícula */
+.incentivo-matricula {
+  padding: 50px 20px;
+  background: #000000;
+  color: white;
+  text-align: center;
+  margin: 20px;
+  border-radius: 10px;
+}
+
+.incentivo-matricula h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.incentivo-matricula p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.preco-original {
+  text-decoration: line-through;
+  color: #ff4d4d; /* Cor vermelha para indicar preço antigo */
+}
+
+.preco-promocional {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #000000; /* Cor do texto */
+  background: #25D366; /* Fundo gradiente */
+  padding: 10px 20px;
+  border-radius: 10px; /* Bordas arredondadas */
+  position: relative;
+}
+
+/* Botão de Matrícula */
+.btn-matricula {
+  display: inline-block;
+  padding: 15px 30px;
+  background-color: #25D366; /* Verde do WhatsApp */
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 50px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  animation: pulse 1s infinite; /* Pulsação automática */
+}
+
+.btn-matricula:hover {
+  transform: scale(1.5); /* Efeito de zoom */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Sombra mais intensa */
+}
+
+.btn-matricula i {
+  margin-right: 10px;
+  font-size: 1.5rem;
+}
+
+/* RESPONSIVIDADE - INCENTIVO À MATRÍCULA */
+@media (max-width: 768px) {
+  .incentivo-matricula h2 {
+    font-size: 1.5rem; /* Título menor */
+  }
+  .incentivo-matricula p {
+    font-size: 0.9rem; /* Texto menor */
+  }
+  .btn-matricula {
+    padding: 10px 20px; /* Botão menor */
+    font-size: 1rem;
+  }
+}
+
+/* Animação de pulsação */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Seção Depoimentos */
+.depoimentos {
+  padding: 50px 20px;
+  background: rgba(89, 138, 51, 0.9);
+  margin: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.depoimentos h2 {
+  margin-bottom: 30px;
+  font-size: 2rem;
+  color: #000000;
+}
+
+.depoimentos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Cards de depoimentos */
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.card span {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.card span::before {
+  content: "⭐️⭐️⭐️⭐️⭐️";
+  margin-right: 8px;
+}
+
+/* RESPONSIVIDADE - DEPOIMENTOS */
+@media (max-width: 768px) {
+  .depoimentos h2 {
+    font-size: 1.5rem; /* Título menor */
+  }
+  .card {
+    padding: 15px; /* Menos espaço interno */
+  }
+  .card img {
+    width: 50px; /* Imagem menor */
+    height: 50px;
+  }
+  .card p {
+    font-size: 0.8rem; /* Texto menor */
+  }
+  .card span {
+    font-size: 0.8rem; /* Avaliação menor */
+  }
+}
+
+/* Seção FAQ */
+.faq {
+  padding: 50px 20px;
+  background: rgb(0, 0, 0);
+  margin: 20px;
+  border-radius: 10px;
+}
+
+.faq h2 {
+  margin-bottom: 20px;
+}
+
+.faq-item {
+  margin-bottom: 10px;
+}
+
+.faq-question {
+  width: 100%;
+  padding: 10px;
+  background: #25D366;
+  color: white;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+.faq-question:hover {
+  background: #128C7E;
+}
+
+.faq-answer {
+  padding: 10px;
+  background: #f9f9f9;
+  display: none;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+/* Estilo para o ícone de expansão */
+.faq-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Alinha o texto à esquerda e o ícone à direita */
+  font-weight: bold;
+  color: #000;
+}
+
+.faq h2 {
+  color: #ffffff;
+}
+
+.faq-icon {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: white;
+  transition: transform 0.3s ease; /* Animação suave para rotação */
+}
+
+/* RESPONSIVIDADE - FAQ */
+@media (max-width: 768px) {
+  .faq h2 {
+    font-size: 1.5rem; /* Título menor */
+  }
+  .faq-question {
+    font-size: 0.9rem; /* Pergunta menor */
+  }
+  .faq-answer {
+    font-size: 0.8rem; /* Resposta menor */
+  }
+}
+
+/* Seção Redes Sociais */
+.redes-sociais {
+  text-align: center;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  margin: 20px;
+  border-radius: 10px;
+}
+
+.redes-sociais h2 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.social-icons a {
+  color: white;
+  font-size: 2rem;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+}
+
+/* Cores específicas para cada ícone */
+.social-icons .fa-facebook {
+  color: #1877F2; /* Azul do Facebook */
+}
+
+.social-icons .fa-instagram {
+  color: #E4405F; /* Rosa do Instagram */
+}
+
+.social-icons .fa-youtube {
+  color: #FF0000; /* Vermelho do YouTube */
+}
+
+.social-icons .fa-whatsapp {
+  color: #25D366; /* Verde do WhatsApp */
+}
+
+/* RESPONSIVIDADE - REDES SOCIAIS */
+@media (max-width: 768px) {
+  .redes-sociais h2 {
+    font-size: 1.2rem; /* Título menor */
+  }
+  .social-icons a {
+    font-size: 1.5rem; /* Ícones menores */
+  }
+}
+
+/* Rodapé */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.9);
+  margin-top: 20px;
+  color: #ffffff;
+}
+
+/* RESPONSIVIDADE - RODAPÉ */
+@media (max-width: 768px) {
+  footer {
+    font-size: 0.9rem; /* Texto menor */
+  }
+}
