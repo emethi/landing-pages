@@ -84,11 +84,12 @@ body {
   transform: rotate(-45deg);
 }
 
+/* Menu Lateral */
 .menu-lateral {
   position: fixed;
   top: 0;
   right: -100%;
-  width: 300px;
+  width: 300px; /* Largura padrão em telas grandes */
   height: 100vh;
   background: linear-gradient(to bottom, #009c3b, #ffdf00, #002776);
   transition: right 0.3s ease;
@@ -96,14 +97,18 @@ body {
   z-index: 1001;
 }
 
-.menu-lateral.active { right: 0; }
+.menu-lateral.active {
+  right: 0;
+}
 
 .menu-lateral ul {
   list-style: none;
   padding-left: 20px;
 }
 
-.menu-lateral ul li { margin: 10px 0; }
+.menu-lateral ul li {
+  margin: 10px 0;
+}
 
 .menu-lateral ul li a {
   color: #000;
@@ -113,7 +118,25 @@ body {
   transition: text-decoration 0.3s ease;
 }
 
-.menu-lateral ul li a:hover { text-decoration: underline; }
+.menu-lateral ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Responsividade do Menu no Celular */
+@media (max-width: 768px) {
+  .menu-lateral {
+    width: 50%; /* Ocupa metade da tela no celular */
+  }
+  .menu-lateral ul {
+    padding-left: 10px; /* Menos espaço à esquerda */
+  }
+  .menu-lateral ul li {
+    margin: 8px 0; /* Menor espaçamento entre itens */
+  }
+  .menu-lateral ul li a {
+    font-size: 16px; /* Tamanho de fonte ajustado */
+  }
+}
 
 /* Seção Hero */
 .hero {
@@ -428,7 +451,7 @@ body {
   position: relative;
   width: 100%;
   max-width: 800px;
-  height: 400px;
+  height: 400px; /* Altura padrão em telas grandes */
   margin: 0 auto;
   overflow: hidden;
 }
@@ -450,15 +473,17 @@ body {
   justify-content: center;
   align-items: center;
 }
+
 .carousel-item img {
-  max-width: 500px; /* Largura máxima */
-  max-height: 400px; /* Altura máxima */
-  width: auto; /* Mantém a proporção natural da largura */
-  height: auto; /* Mantém a proporção natural da altura */
-  object-fit: contain; /* Faz a imagem caber inteira no espaço, sem cortar */
+  max-width: 500px; /* Largura máxima em telas grandes */
+  max-height: 400px; /* Altura máxima em telas grandes */
+  width: auto;
+  height: auto;
+  object-fit: contain; /* Imagem inteira, sem corte */
   border-radius: 10px;
   border: 2px solid #ff0;
 }
+
 .carousel-prev,
 .carousel-next {
   position: absolute;
@@ -474,20 +499,15 @@ body {
   transition: background 0.3s ease;
 }
 
-.carousel-prev {
-  left: 10px;
-}
-
-.carousel-next {
-  right: 10px;
-}
+.carousel-prev { left: 10px; }
+.carousel-next { right: 10px; }
 
 .carousel-prev:hover,
 .carousel-next:hover {
   background: rgba(0, 0, 0, 0.8);
 }
 
-/* Responsividade */
+/* Responsividade do Carrossel no Celular */
 @media (max-width: 768px) {
   .alunos-formados {
     padding: 30px 15px;
@@ -497,7 +517,19 @@ body {
     font-size: 1.8rem;
   }
   .carousel {
-    height: 400px;
+    height: 300px; /* Altura reduzida no celular */
+    max-width: 100%; /* Usa toda a largura disponível */
+  }
+  .carousel-item img {
+    width: 100%; /* Ocupa a largura do contêiner */
+    max-width: 300px; /* Limite menor para caber na tela */
+    max-height: 280px; /* Altura ajustada para caber no contêiner */
+    height: auto;
+  }
+  .carousel-prev,
+  .carousel-next {
+    font-size: 30px; /* Botões menores no celular */
+    padding: 5px;
   }
 }
 
@@ -679,6 +711,7 @@ body {
 .social-icons {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap; /* Permite que os ícones quebrem em linhas */
   gap: 20px;
 }
 
@@ -689,17 +722,35 @@ body {
   transition: transform 0.2s ease;
 }
 
-.social-icons a:hover { transform: scale(1.5); }
+.social-icons a:hover {
+  transform: scale(1.5);
+}
 
 .social-icons .fa-facebook { color: #1877F2; }
 .social-icons .fa-instagram { color: #E4405F; }
 .social-icons .fa-youtube { color: #FF0000; }
 .social-icons .fa-whatsapp { color: #25D366; }
 
+/* Responsividade no Celular */
 @media (max-width: 768px) {
-  .redes-sociais { padding: 15px; }
-  .redes-sociais h2 { font-size: 1.2rem; }
-  .social-icons a { font-size: 1.5rem; }
+  .redes-sociais {
+    padding: 15px;
+  }
+  .redes-sociais h2 {
+    font-size: 1.2rem;
+  }
+  .social-icons {
+    display: flex;
+    flex-wrap: wrap; /* Garante que os ícones quebrem em linhas */
+    justify-content: center; /* Centraliza os pares */
+    gap: 15px; /* Reduz o espaçamento no mobile */
+    max-width: 100%; /* Usa a largura total disponível */
+  }
+  .social-icons a {
+    font-size: 2.5rem; /* Aumenta o tamanho dos ícones no celular */
+    flex: 0 0 calc(50% - 15px); /* Cada ícone ocupa metade da largura menos o gap */
+    text-align: center; /* Centraliza o ícone no espaço */
+  }
 }
 
 /* Rodapé */
