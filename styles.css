@@ -1,11 +1,10 @@
-/* Reset básico para remover margens e paddings padrão */
+/* Reset básico */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Estilos globais */
 body {
   font-family: 'Open Sans', sans-serif;
   line-height: 1.6;
@@ -14,205 +13,190 @@ body {
 }
 
 /* Cabeçalho */
-header {
+.cabecalho {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #000;
+  color: #ff0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
-  background: rgba(0, 0, 0, 0.9);
+  padding: 10px 20px;
+  z-index: 1000;
 }
 
-/* Logo no cabeçalho */
-header .logo img {
-  width: 80px;
-  height: 80px;
+.logo {
+  flex: 1;
+  text-align: center;
 }
 
-/* Navegação */
-nav ul {
-  list-style: none;
+.logo-img {
+  max-width: 100px;
+  height: auto;
+}
+
+.menu-toggle {
+  background: none;
+  border: none;
+  color: #ff0;
+  font-size: 16px;
+  cursor: pointer;
   display: flex;
-  gap: 20px;
+  align-items: center;
+  gap: 8px;
 }
 
-nav ul li a {
-  text-decoration: none;
-  color: #ffffff;
-  font-weight: bold;
+.hamburger {
+  width: 25px;
+  height: 3px;
+  background-color: #ff0;
+  position: relative;
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-/* Botão do WhatsApp no cabeçalho */
-.btn-whatsapp {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #25D366;
+.hamburger::before,
+.hamburger::after {
+  content: '';
+  width: 25px;
+  height: 3px;
+  background-color: #ff0;
+  position: absolute;
+  left: 0;
+  transition: transform 0.3s ease, top 0.3s ease;
+}
+
+.hamburger::before { top: -8px; }
+.hamburger::after { top: 8px; }
+
+.menu-toggle.active .hamburger {
+  background-color: transparent;
+}
+
+.menu-toggle.active .hamburger::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.menu-toggle.active .hamburger::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+
+.menu-lateral {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 300px;
+  height: 100vh;
+  background: linear-gradient(to bottom, #009c3b, #ffdf00, #002776);
+  transition: right 0.3s ease;
+  padding-top: 60px;
+  z-index: 1001;
+}
+
+.menu-lateral.active { right: 0; }
+
+.menu-lateral ul {
+  list-style: none;
+  padding-left: 20px;
+}
+
+.menu-lateral ul li { margin: 20px 0; }
+
+.menu-lateral ul li a {
   color: #000;
-  text-decoration: none;
-  border-radius: 5px;
   font-weight: bold;
-  transition: background 0.3s ease;
-  animation: pulse 1s infinite; /* Pulsação automática */
-}
-
-.btn-whatsapp:hover {
-  background-color: #306300;
-}
-
-/* Responsividade para telas menores */
-@media (max-width: 768px) {
-  header {
-    flex-direction: column; /* Altera o layout para colunas */
-    align-items: flex-start; /* Alinha itens à esquerda */
-    text-align: center; /* Centraliza texto */
-  }
-
-  nav ul {
-    /*flex-direction: column; /* Coloca os links de navegação em coluna */
-    gap: 10px; /* Espaçamento entre os links */
-    width: 100%; /* Ocupa toda a largura */
-  }
-
-  .btn-whatsapp {
-    margin-top: 10px; /* Adiciona espaço acima do botão */
-    width: 100%; /* Faz o botão ocupar toda a largura */
-    text-align: center; /* Centraliza o texto do botão */
-  }
-}
-
-/* Botão CTA principal */
-.cta-button {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #25D366;
-  color: #000;
   text-decoration: none;
-  border-radius: 5px;
-  font-weight: bold;
-  transition: background 0.3s ease;
-  animation: pulse 1s infinite; /* Pulsação automática */
+  font-size: 18px;
+  transition: text-decoration 0.3s ease;
 }
 
-.cta-button:hover {
-  background-color: #306300;
-}
+.menu-lateral ul li a:hover { text-decoration: underline; }
 
 /* Seção Hero */
 .hero {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 50px;
   background: rgb(0, 0, 0);
   margin: 20px;
   border-radius: 10px;
-  gap: 100px; /* Adiciona espaço entre o conteúdo e a imagem */
-}
-
-/* Conteúdo da seção Hero */
-.hero-content h1 {
-  font-size: 3rem;
-  margin-bottom: 20px;
   text-align: center;
-  font-weight: bolder;
-  color: #FFD700;
-}
-
-.hero-content p {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
-  color: #f9f9f9;
-}
-
-/* Imagem da seção Hero */
-.hero-image img {
-  max-width: 60%;
-  border-radius: 20px;
-}
-
-/* RESPONSIVIDADE - HERO */
-@media (max-width: 768px) {
-  .hero {
-    flex-direction: column;
-    gap: 20px; /* Reduz o espaço entre o conteúdo e a imagem */
-    padding: 20px;
-  }
-  .hero-content h1 {
-    font-size: 1.8rem; /* Título menor */
-  }
-  .hero-content p {
-    font-size: 0.9rem; /* Texto menor */
-  }
-  .hero-image img {
-    max-width: 85%; /* Imagem ocupa menos espaço */
-    margin-top: 20px;
-  }
-}
-
-/* Estilo para a lista de benefícios */
-.hero-benefits {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 20px;
-  border-radius: 10px;
-  margin: 20px 0;
-}
-
-.hero-benefits p {
-  font-size: 1.3rem;
-  font-weight: bold;
-  color: #FFD700;
-  margin-bottom: 15px;
-}
-
-.hero-benefits ul {
-  list-style: none;
-  padding-left: 0;
-}
-
-.hero-benefits ul li {
-  font-size: 1.1rem;
-  color: #f9f9f9;
-  margin-bottom: 10px;
-  padding-left: 20px;
-  position: relative;
-}
-.hero-benefits ul li::before {
-  content: "\25CF"; /* Círculo preenchido */
-  position: absolute;
-  left: 0;
-  color: #FFD700; 
-}
-
-/* Seção Sobre o Curso */
-.sobre-curso {
   padding: 50px 20px;
-  background: rgb(0, 0, 0);
-  margin: 20px;
+  max-width: 1470px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 150px;
+  color: #f9f9f9;
+}
+
+.hero-content {
+  padding: 30px;
   border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  margin: 0 auto;
 }
 
-.sobre-curso h2 {
+.hero-title {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 2.5rem;
+  font-weight: bolder;
+  color: #fbc900;
+  text-shadow: 0 4px 8px rgba(255, 241, 86, 0.768);
   margin-bottom: 20px;
-  color: #f9f9f9;
-  justify-self: center;
 }
 
-.sobre-curso ul {
-  list-style: none;
-  color: #f9f9f9;
+.hero-text {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: #25D366;
 }
 
-.sobre-curso ul li {
-  margin-bottom: 10px;
+.hero-list-container {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid #ff0;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 0 auto 30px;
+  max-width: 800px;
 }
 
-/* RESPONSIVIDADE - SOBRE O CURSO */
+.hero-list {
+  text-align: justify;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.hero-list li {
+  margin-bottom: 20px;
+  font-size: 1rem;
+  line-height: 1.5;
+  list-style-position: inside;
+  font-style: italic;
+}
+
+.hero-list strong { color: #fbc900; }
+
+.hero-button {
+  display: inline-block;
+  padding: 15px 30px;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+  background: #ff0000;
+  border-radius: 50px;
+  text-decoration: none;
+  animation: pulse 1.5s infinite;
+  transition: background 0.3s ease;
+}
+
+.hero-button:hover { background: #cc0000; }
+
 @media (max-width: 768px) {
-  .sobre-curso h2 {
-    font-size: 1.5rem; /* Título menor */
-  }
-  .sobre-curso ul li {
-    font-size: 0.9rem; /* Texto menor */
-  }
+  .hero { padding: 30px 15px; }
+  .hero-title { font-size: 2rem; }
+  .hero-text { font-size: 1rem; }
+  .hero-button { font-size: 1.5rem; padding: 10px 20px; }
 }
 
 /* Seção de Vídeo */
@@ -227,7 +211,8 @@ nav ul li a {
 .video h2 {
   margin-bottom: 20px;
   font-size: 2rem;
-  color: #ffffff;
+  font-weight: bold;
+  color: #6aff00;
 }
 
 .video-container {
@@ -240,30 +225,142 @@ nav ul li a {
 .video-container iframe {
   width: 100%;
   height: auto;
-  aspect-ratio: 16 / 9; /* Mantém a proporção de 16:9 */
+  aspect-ratio: 16 / 9;
   border-radius: 10px;
 }
 
-/* RESPONSIVIDADE - VIDEO */
 @media (max-width: 768px) {
-  .video h2 {
-    font-size: 1.5rem; /* Título menor */
-  }
-  .video-container iframe {
-    width: 100%; /* Ocupa toda a largura disponível */
-    height: auto;
-  }
+  .video { padding: 30px 15px; }
+  .video h2 { font-size: 1.5rem; }
 }
 
-/* Estilo para a seção de documentos */
-#documentos {
-  padding: 40px 20px;
+/* Seção Foto Grande */
+.foto-grande {
+  padding: 20px;
+  text-align: center;
+  background: transparent;
+}
+
+.foto-grande img {
+  max-width: 50%;
+  height: 500px;
+  display: block;
+  margin: 10px auto;
+}
+
+.btn-universal {
+  display: inline-block;
+  padding: 15px 30px;
+  background: #25D366;
+  color: #000;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  animation: pulse 1.5s infinite;
+}
+
+.btn-universal:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+  .foto-grande { padding: 15px; }
+  .btn-universal { padding: 10px 20px; font-size: 1rem; }
+}
+
+/* Seção Sobre o Curso */
+.sobre-curso {
+  padding: 50px 20px;
+  background: #000;
+  margin: 20px;
+  border-radius: 10px;
+  max-width: 1200px;
+  width: calc(100% - 40px);
+  margin-left: auto;
+  margin-right: auto;
+  color: #fff;
   text-align: center;
 }
 
-#documentos h2 {
+.sobre-curso h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #fbc900;
   margin-bottom: 30px;
 }
+
+.sobre-curso p {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+.sobre-curso ul {
+  list-style: none;
+  max-width: 800px;
+  margin: 0 auto 30px;
+  text-align: left;
+}
+
+.sobre-curso ul li {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  padding-left: 25px;
+  position: relative;
+}
+
+.sobre-curso ul li::before {
+  content: "✅";
+  position: absolute;
+  left: 0;
+  color: #25D366;
+}
+
+.sobre-curso .highlight { color: #fbc900; font-weight: bold; }
+.sobre-curso .price-old { text-decoration: line-through; color: #ff4d4d; }
+.sobre-curso .price-new { font-size: 2.5rem; font-weight: bold; color: #25D366; }
+
+.sobre-curso .btn {
+  display: inline-block;
+  padding: 20px 35px;
+  background: #25D366;
+  color: #000;
+  font-size: 2rem;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: transform 0.3s ease;
+  animation: pulse 1.5s infinite;
+}
+
+.sobre-curso .btn:hover { transform: scale(1.1); }
+
+@media (max-width: 768px) {
+  .sobre-curso { padding: 30px 15px; margin: 10px; width: calc(100% - 20px); }
+  .sobre-curso h2 { font-size: 1.8rem; }
+  .sobre-curso p { font-size: 1rem; }
+  .sobre-curso ul li { font-size: 0.9rem; }
+  .sobre-curso .price-new { font-size: 1.5rem; }
+  .sobre-curso .btn { padding: 10px 20px; font-size: 1rem; }
+}
+
+/* Seção Modelos de Documentos */
+.documentos {
+  padding: 40px 20px;
+  text-align: center;
+  font-weight: bold;
+  color: #000000;
+}
+
+.documentos h2 { margin-bottom: 30px; }
 
 .documentos-container {
   display: flex;
@@ -289,212 +386,74 @@ nav ul li a {
   margin-bottom: 10px;
 }
 
-.documento-item p {
-  font-size: 14px;
-  color: #f70000;
-}
+.documento-item p { font-size: 14px; color: #f70000; }
 
-/* Responsividade */
 @media (max-width: 768px) {
-  .documentos-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .documento-item {
-    width: 90%;
-  }
+  .documentos { padding: 30px 15px; }
+  .documentos-container { flex-direction: column; align-items: center; }
+  .documento-item { width: 90%; }
 }
-/* Seção de Incentivo à Matrícula */
+
+/* Seção Incentivo à Matrícula */
 .incentivo-matricula {
   padding: 50px 20px;
   background: #000000;
-  color: white;
+  color: #f9f9f9;
   text-align: center;
   margin: 20px;
   border-radius: 10px;
 }
 
 .incentivo-matricula h2 {
-  font-size: 2rem;
+  font-size: 3rem;
   margin-bottom: 20px;
+  background-color: #ff0000;
+  font-weight: bolder;
+  color: #fbc900;
 }
 
-.incentivo-matricula p {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
-}
+.incentivo-matricula p { font-size: 1.5rem; margin-bottom: 20px; }
 
-.preco-original {
-  text-decoration: line-through;
-  color: #ff4d4d; /* Cor vermelha para indicar preço antigo */
-}
-
+.preco-original { color: #ff4d4d; }
 .preco-promocional {
   font-size: 2rem;
   font-weight: bold;
-  color: #000000; /* Cor do texto */
-  background: #25D366; /* Fundo verde */
+  color: #000000;
+  background: #fff700;
   padding: 10px 20px;
-  border-radius: 10px; /* Bordas arredondadas */
-  display: inline-block; /* Garante que o elemento tenha largura dinâmica */
-  max-width: 100%; /* Evita que o conteúdo ultrapasse a largura da tela */
-  box-sizing: border-box; /* Garante que o padding não aumente o tamanho total */
+  border-radius: 10px;
+  display: inline-block;
+  max-width: 100%;
+  box-sizing: border-box;
+  animation: pulse 1s infinite;
 }
 
-/* Responsividade para telas menores */
-@media (max-width: 768px) {
-  .incentivo-matricula h2 {
-    font-size: 1.5rem; /* Reduz o tamanho do título */
-  }
-
-  .incentivo-matricula p {
-    font-size: 1rem; /* Reduz o tamanho do parágrafo */
-  }
-
-  .preco-promocional {
-    font-size: 1.5rem; /* Reduz o tamanho do preço */
-    padding: 8px 15px; /* Reduz o espaçamento interno */
-  }
-}
-
-/* Botão de Matrícula */
 .btn-matricula {
   display: inline-block;
   padding: 15px 30px;
-  background-color: #25D366; /* Verde do WhatsApp */
-  color: rgb(0, 0, 0);
+  background-color: #25D366;
+  color: #000;
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1.8rem;
   font-weight: bold;
   border-radius: 50px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  animation: pulse 1s infinite; /* Pulsação automática */
+  animation: pulse 1s infinite;
 }
 
 .btn-matricula:hover {
-  transform: scale(1.5); /* Efeito de zoom */
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Sombra mais intensa */
+  transform: scale(1.5);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  animation: pulse 1.5s infinite;
 }
 
-.btn-matricula i {
-  margin-right: 10px;
-  font-size: 1.5rem;
-}
-
-/* RESPONSIVIDADE - INCENTIVO À MATRÍCULA */
 @media (max-width: 768px) {
-  .incentivo-matricula h2 {
-    font-size: 1.5rem; /* Título menor */
-  }
-  .incentivo-matricula p {
-    font-size: 0.9rem; /* Texto menor */
-  }
-  .btn-matricula {
-    padding: 10px 20px; /* Botão menor */
-    font-size: 1rem;
-  }
-}
-
-/* Animação de pulsação */
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  }
-  50% {
-    transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-  }
-  100% {
-    transform: scale(1);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  }
-}
-
-/* Seção Depoimentos */
-.depoimentos {
-  padding: 50px 20px;
-  background: rgba(89, 138, 51, 0.9);
-  margin: 20px;
-  border-radius: 10px;
-  text-align: center;
-}
-
-.depoimentos h2 {
-  margin-bottom: 30px;
-  font-size: 2rem;
-  color: #000000;
-}
-
-.depoimentos-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* Cards de depoimentos */
-.card {
-  background: white;
-  padding: 25px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  text-align: left;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-}
-
-.card img {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  margin-bottom: 15px;
-}
-
-.card p {
-  font-size: 0.95rem;
-  color: #555;
-  line-height: 1.5;
-  margin-bottom: 15px;
-}
-
-.card span {
-  display: flex;
-  align-items: center;
-  font-size: 0.9rem;
-  color: #333;
-}
-
-.card span::before {
-  content: "⭐️⭐️⭐️⭐️⭐️";
-  margin-right: 8px;
-}
-
-/* RESPONSIVIDADE - DEPOIMENTOS */
-@media (max-width: 768px) {
-  .depoimentos h2 {
-    font-size: 1.5rem; /* Título menor */
-  }
-  .card {
-    padding: 15px; /* Menos espaço interno */
-  }
-  .card img {
-    width: 50px; /* Imagem menor */
-    height: 50px;
-  }
-  .card p {
-    font-size: 0.8rem; /* Texto menor */
-  }
-  .card span {
-    font-size: 0.8rem; /* Avaliação menor */
-  }
+  .incentivo-matricula { padding: 30px 15px; }
+  .incentivo-matricula h2 { font-size: 1.5rem; }
+  .incentivo-matricula p { font-size: 1rem; }
+  .preco-promocional { font-size: 1.5rem; padding: 8px 15px; }
+  .btn-matricula { padding: 10px 20px; font-size: 1rem; }
 }
 
 /* Seção FAQ */
@@ -507,26 +466,26 @@ nav ul li a {
 
 .faq h2 {
   margin-bottom: 20px;
+  font-size: 2.5rem;
+  color: #ffffff;
 }
 
-.faq-item {
-  margin-bottom: 10px;
-}
+.faq-item { margin-bottom: 10px; }
 
 .faq-question {
   width: 100%;
   padding: 10px;
-  background: #25D366;
-  color: white;
+  background: #ffd000;
+  color: #000000;
   border: none;
   text-align: left;
   cursor: pointer;
   border-radius: 5px;
-  transition: background 0.3s ease;
-}
-
-.faq-question:hover {
-  background: #128C7E;
+  font-size: 1.4rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .faq-answer {
@@ -537,37 +496,62 @@ nav ul li a {
   margin-top: 5px;
 }
 
-/* Estilo para o ícone de expansão */
-.faq-question {
-  display: flex;
-  align-items: center;
-  justify-content: space-between; /* Alinha o texto à esquerda e o ícone à direita */
+.faq-icon {
+  font-size: 1.8rem;
   font-weight: bold;
   color: #000;
 }
 
-.faq h2 {
-  color: #ffffff;
-}
-
-.faq-icon {
-  font-size: 1.6rem;
-  font-weight: bold;
-  color: white;
-  transition: transform 0.3s ease; /* Animação suave para rotação */
-}
-
-/* RESPONSIVIDADE - FAQ */
 @media (max-width: 768px) {
-  .faq h2 {
-    font-size: 1.5rem; /* Título menor */
-  }
-  .faq-question {
-    font-size: 0.9rem; /* Pergunta menor */
-  }
-  .faq-answer {
-    font-size: 0.8rem; /* Resposta menor */
-  }
+  .faq { padding: 30px 15px; }
+  .faq h2 { font-size: 1.5rem; }
+  .faq-question { font-size: 0.9rem; }
+  .faq-answer { font-size: 0.8rem; }
+}
+
+/* Seção Sobre Nós */
+.sobre-nos {
+  padding: 50px 20px;
+  background: url('img/SOBRE.png') no-repeat center center/cover;
+  margin: 20px;
+  border-radius: 10px;
+  max-width: 1800px;
+  width: calc(100% - 40px);
+  margin-left: auto;
+  margin-right: auto;
+  color: #fff;
+  text-align: center;
+}
+
+.sobre-nos h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 30px;
+  background: #000000;
+}
+
+.sobre-nos .text-container {
+  background: rgb(0, 0, 0);
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 900px;
+  margin: 0 auto 30px;
+}
+
+.sobre-nos p {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.sobre-nos .highlight { color: #25D366; font-weight: bold; }
+
+@media (max-width: 768px) {
+  .sobre-nos { padding: 30px 15px; margin: 10px; width: calc(100% - 20px); }
+  .sobre-nos h2 { font-size: 1.8rem; }
+  .sobre-nos p { font-size: 1rem; margin-bottom: 10px; }
 }
 
 /* Seção Redes Sociais */
@@ -581,7 +565,7 @@ nav ul li a {
 
 .redes-sociais h2 {
   margin-bottom: 20px;
-  font-size: 1.5rem;
+  font-size: 3rem;
   color: #333;
 }
 
@@ -593,40 +577,22 @@ nav ul li a {
 
 .social-icons a {
   color: white;
-  font-size: 2rem;
+  font-size: 5rem;
   text-decoration: none;
   transition: transform 0.2s ease;
 }
 
-.social-icons a:hover {
-  transform: scale(1.2);
-}
+.social-icons a:hover { transform: scale(1.5); }
 
-/* Cores específicas para cada ícone */
-.social-icons .fa-facebook {
-  color: #1877F2; /* Azul do Facebook */
-}
+.social-icons .fa-facebook { color: #1877F2; }
+.social-icons .fa-instagram { color: #E4405F; }
+.social-icons .fa-youtube { color: #FF0000; }
+.social-icons .fa-whatsapp { color: #25D366; }
 
-.social-icons .fa-instagram {
-  color: #E4405F; /* Rosa do Instagram */
-}
-
-.social-icons .fa-youtube {
-  color: #FF0000; /* Vermelho do YouTube */
-}
-
-.social-icons .fa-whatsapp {
-  color: #25D366; /* Verde do WhatsApp */
-}
-
-/* RESPONSIVIDADE - REDES SOCIAIS */
 @media (max-width: 768px) {
-  .redes-sociais h2 {
-    font-size: 1.2rem; /* Título menor */
-  }
-  .social-icons a {
-    font-size: 1.5rem; /* Ícones menores */
-  }
+  .redes-sociais { padding: 15px; }
+  .redes-sociais h2 { font-size: 1.2rem; }
+  .social-icons a { font-size: 1.5rem; }
 }
 
 /* Rodapé */
@@ -638,9 +604,13 @@ footer {
   color: #ffffff;
 }
 
-/* RESPONSIVIDADE - RODAPÉ */
 @media (max-width: 768px) {
-  footer {
-    font-size: 0.9rem; /* Texto menor */
-  }
+  footer { font-size: 0.9rem; padding: 15px; }
+}
+
+/* Animação de Pulsação */
+@keyframes pulse {
+  0% { transform: scale(1); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); }
+  50% { transform: scale(1.05); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); }
+  100% { transform: scale(1); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); }
 }
