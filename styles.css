@@ -381,8 +381,8 @@ body {
 
 @media (max-width: 768px) {
   .sobre-curso { padding: 30px 15px; margin: 10px; width: calc(100% - 20px); }
-  .sobre-curso h2 { font-size: 1.8rem; }
-  .sobre-curso p { font-size: 1rem; }
+  .sobre-curso h2 { font-size: 2rem; }
+  .sobre-curso p { font-size: 1.1rem; }
   .sobre-curso ul li { font-size: 0.9rem; }
   .sobre-curso .price-new { font-size: 1.5rem; }
   .sobre-curso .btn { padding: 10px 20px; font-size: 1rem; }
