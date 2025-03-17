@@ -394,6 +394,100 @@ body {
   .documento-item { width: 90%; }
 }
 
+/* Seção Alunos Formados */
+.alunos-formados {
+  padding: 50px 20px;
+  background: #000;
+  margin: 20px;
+  border-radius: 10px;
+  text-align: center;
+  color: #fff;
+}
+
+.alunos-formados h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fbc900;
+  margin-bottom: 30px;
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  height: 400px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.carousel-inner {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease;
+}
+
+.carousel-item {
+  flex: 0 0 100%;
+  display: none;
+}
+
+.carousel-item.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.carousel-item img {
+  max-width: 500px; /* Largura máxima */
+  max-height: 400px; /* Altura máxima */
+  width: auto; /* Mantém a proporção natural da largura */
+  height: auto; /* Mantém a proporção natural da altura */
+  object-fit: contain; /* Faz a imagem caber inteira no espaço, sem cortar */
+  border-radius: 10px;
+  border: 2px solid #ff0;
+}
+.carousel-prev,
+.carousel-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: #fbc900;
+  border: none;
+  padding: 10px;
+  font-size: 50px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background 0.3s ease;
+}
+
+.carousel-prev {
+  left: 10px;
+}
+
+.carousel-next {
+  right: 10px;
+}
+
+.carousel-prev:hover,
+.carousel-next:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .alunos-formados {
+    padding: 30px 15px;
+    margin: 10px;
+  }
+  .alunos-formados h2 {
+    font-size: 1.8rem;
+  }
+  .carousel {
+    height: 300px;
+  }
+}
+
 /* Seção Incentivo à Matrícula */
 .incentivo-matricula {
   padding: 50px 20px;
