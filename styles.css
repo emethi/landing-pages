@@ -103,7 +103,7 @@ body {
   padding-left: 20px;
 }
 
-.menu-lateral ul li { margin: 20px 0; }
+.menu-lateral ul li { margin: 10px 0; }
 
 .menu-lateral ul li a {
   color: #000;
@@ -242,8 +242,9 @@ body {
 }
 
 .foto-grande img {
-  max-width: 50%;
-  height: 500px;
+  width: 50%; /* Largura padrão em telas grandes */
+  max-width: 100%; /* Garante que não ultrapasse o contêiner */
+  height: auto; /* Mantém a proporção natural */
   display: block;
   margin: 10px auto;
 }
@@ -271,8 +272,20 @@ body {
 }
 
 @media (max-width: 768px) {
-  .foto-grande { padding: 15px; }
-  .btn-universal { padding: 10px 20px; font-size: 1rem; }
+  .foto-grande {
+    padding: 15px;
+  }
+  .foto-grande img {
+    width: 100%; /* Ocupa toda a largura disponível no mobile */
+    max-width: 300px; /* Limita ao tamanho do botão, ajustável */
+    height: auto; /* Mantém a proporção */
+  }
+  .btn-universal {
+    padding: 10px 20px;
+    font-size: 1rem;
+    max-width: 300px; /* Define um tamanho fixo para o botão */
+    width: 100%; /* Garante que o botão use a largura máxima */
+  }
 }
 
 /* Seção Sobre o Curso */
@@ -484,7 +497,7 @@ body {
     font-size: 1.8rem;
   }
   .carousel {
-    height: 300px;
+    height: 350px;
   }
 }
 
