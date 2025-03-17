@@ -1,35 +1,56 @@
-// Função para o FAQ
-document.querySelectorAll('.faq-question').forEach(button => {
-    button.addEventListener('click', () => {
-      const answer = button.nextElementSibling;
-      answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
-    });
+// Função para rolar a página para o topo ao atualizar
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth' // Rolagem suave para uma melhor experiência
   });
-  
-  // Função para enviar formulário de e-mail
-  document.querySelector('.email-form').addEventListener('submit', (e) => {
-    e.preventDefault();
-    const email = e.target.querySelector('input').value;
-    alert(`Obrigado! Enviaremos mais informações para: ${email}`);
-  });
+}
 
-  // Script para funcionalidade do FAQ
-document.addEventListener("DOMContentLoaded", function () {
-  const faqQuestions = document.querySelectorAll(".faq-question");
+// Menu Lateral
+const menuToggle = document.querySelector('.menu-toggle');
+const menuToggleInterno = document.querySelector('.menu-toggle-interno');
+const menuLateral = document.querySelector('.menu-lateral');
 
+function toggleMenu() {
+  menuLateral.classList.toggle('active');
+  const isExpanded = menuLateral.classList.contains('active');
+  menuToggle.classList.toggle('active', isExpanded);
+  menuToggleInterno.classList.toggle('active', isExpanded);
+  menuToggle.setAttribute('aria-expanded', isExpanded);
+  menuToggleInterno.setAttribute('aria-expanded', isExpanded);
+}
+
+menuToggle.addEventListener('click', toggleMenu);
+menuToggleInterno.addEventListener('click', toggleMenu);
+
+document.addEventListener('click', (event) => {
+  const isClickInsideMenu = menuLateral.contains(event.target);
+  const isClickOnToggle = menuToggle.contains(event.target);
+  if (!isClickInsideMenu && !isClickOnToggle && menuLateral.classList.contains('active')) {
+    menuLateral.classList.remove('active');
+    menuToggle.classList.remove('active');
+    menuToggleInterno.classList.remove('active');
+    menuToggle.setAttribute('aria-expanded', false);
+    menuToggleInterno.setAttribute('aria-expanded', false);
+  }
+});
+
+// FAQ e Scroll ao carregar
+document.addEventListener('DOMContentLoaded', () => {
+  // Rola para o topo ao carregar a página
+  scrollToTop();
+
+  // FAQ
+  const faqQuestions = document.querySelectorAll('.faq-question');
   faqQuestions.forEach((question) => {
-    question.addEventListener("click", () => {
-      // Seleciona a resposta associada à pergunta
+    question.addEventListener('click', () => {
       const answer = question.nextElementSibling;
-
-      // Alterna a visibilidade da resposta
-      if (answer.style.display === "block") {
-        answer.style.display = "none";
-        question.querySelector(".faq-icon").textContent = "+"; // Altera para "+"
-      } else {
-        answer.style.display = "block";
-        question.querySelector(".faq-icon").textContent = "-"; // Altera para "-"
-      }
+      const icon = question.querySelector('.faq-icon');
+      const isVisible = answer.style.display === 'block';
+      answer.style.display = isVisible ? 'none' : 'block';
+      icon.textContent = isVisible ? '+' : '-';
     });
   });
 });
+
+  AOS.init();
