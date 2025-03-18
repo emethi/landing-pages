@@ -19,7 +19,7 @@ body {
   left: 0;
   width: 100%;
   background-color: #000;
-  color: #ff0;
+  color: rgb(255, 255, 255);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -40,7 +40,7 @@ body {
 .menu-toggle {
   background: none;
   border: none;
-  color: #ff0;
+  color: rgb(255, 255, 255);
   font-size: 16px;
   cursor: pointer;
   display: flex;
@@ -51,7 +51,7 @@ body {
 .hamburger {
   width: 25px;
   height: 3px;
-  background-color: #ff0;
+  background-color: rgb(255, 255, 255);
   position: relative;
   transition: transform 0.3s ease, background-color 0.3s ease;
 }
@@ -61,7 +61,7 @@ body {
   content: '';
   width: 25px;
   height: 3px;
-  background-color: #ff0;
+  background-color: rgb(255, 255, 255);
   position: absolute;
   left: 0;
   transition: transform 0.3s ease, top 0.3s ease;
@@ -89,9 +89,9 @@ body {
   position: fixed;
   top: 0;
   right: -100%;
-  width: 300px; /* Largura padrão em telas grandes */
+  width: 300px;
   height: 100vh;
-  background: linear-gradient(to bottom, #009c3b, #ffdf00, #002776);
+  background:  #000000;
   transition: right 0.3s ease;
   padding-top: 60px;
   z-index: 1001;
@@ -111,10 +111,10 @@ body {
 }
 
 .menu-lateral ul li a {
-  color: #000;
+  color: #ffffff;
   font-weight: bold;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 23px;
   transition: text-decoration 0.3s ease;
 }
 
@@ -122,104 +122,25 @@ body {
   text-decoration: underline;
 }
 
-/* Responsividade do Menu no Celular */
 @media (max-width: 768px) {
   .menu-lateral {
-    width: 50%; /* Ocupa metade da tela no celular */
+    width: 50%;
   }
   .menu-lateral ul {
-    padding-left: 10px; /* Menos espaço à esquerda */
+    padding-left: 10px;
   }
   .menu-lateral ul li {
-    margin: 8px 0; /* Menor espaçamento entre itens */
+    margin: 8px 0;
   }
   .menu-lateral ul li a {
-    font-size: 16px; /* Tamanho de fonte ajustado */
+    font-size: 16px;
   }
 }
-
-/* Seção Hero */
-.hero {
-  background: rgb(0, 0, 0);
-  margin: 20px;
-  border-radius: 10px;
-  text-align: center;
-  padding: 50px 20px;
-  max-width: 1470px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 150px;
-  color: #f9f9f9;
-}
-
-.hero-content {
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  margin: 0 auto;
-}
-
-.hero-title {
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-size: 2.5rem;
-  font-weight: bolder;
-  color: #fbc900;
-  text-shadow: 0 4px 8px rgba(255, 241, 86, 0.768);
-  margin-bottom: 20px;
-}
-
-.hero-text {
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-bottom: 30px;
-  color: #25D366;
-}
-
-.hero-list-container {
-  background: rgba(255, 255, 255, 0.1);
-  border: 2px solid #ff0;
-  border-radius: 10px;
-  padding: 20px;
-  margin: 0 auto 30px;
-  max-width: 800px;
-}
-
-.hero-list {
-  text-align: justify;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
-.hero-list li {
-  margin-bottom: 20px;
-  font-size: 1rem;
-  line-height: 1.5;
-  list-style-position: inside;
-  font-style: italic;
-}
-
-.hero-list strong { color: #fbc900; }
-
-.hero-button {
-  display: inline-block;
-  padding: 15px 30px;
-  font-size: 2rem;
-  font-weight: bold;
-  color: #fff;
-  background: #ff0000;
-  border-radius: 50px;
-  text-decoration: none;
-  animation: pulse 1.5s infinite;
-  transition: background 0.3s ease;
-}
-
-.hero-button:hover { background: #cc0000; }
 
 @media (max-width: 768px) {
   .hero { padding: 30px 15px; }
   .hero-title { font-size: 2rem; }
   .hero-text { font-size: 1rem; }
-  .hero-button { font-size: 1.5rem; padding: 10px 20px; }
 }
 
 /* Seção de Vídeo */
@@ -229,6 +150,15 @@ body {
   margin: 20px;
   border-radius: 10px;
   text-align: center;
+}
+
+.video h1 { /* Título h1 migrado para cá */
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: bolder;
+  color: #FFD700;
+  margin-top: 100PX;
 }
 
 .video h2 {
@@ -252,9 +182,27 @@ body {
   border-radius: 10px;
 }
 
+.video .hero-button { /* Botão migrado da seção Hero */
+  display: inline-block;
+  padding: 15px 30px;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #fff;
+  background: #ff0000;
+  border-radius: 50px;
+  text-decoration: none;
+  animation: pulse 1.5s infinite;
+  transition: background 0.3s ease;
+  margin-top: 20px;
+}
+
+.video .hero-button:hover { background: #cc0000; }
+
 @media (max-width: 768px) {
   .video { padding: 30px 15px; }
+  .video h1 { font-size: 2rem; }
   .video h2 { font-size: 1.5rem; }
+  .video .hero-button { font-size: 1.5rem; padding: 10px 20px; }
 }
 
 /* Seção Foto Grande */
@@ -265,9 +213,9 @@ body {
 }
 
 .foto-grande img {
-  width: 50%; /* Largura padrão em telas grandes */
-  max-width: 100%; /* Garante que não ultrapasse o contêiner */
-  height: auto; /* Mantém a proporção natural */
+  width: 50%;
+  max-width: 100%;
+  height: auto;
   display: block;
   margin: 10px auto;
 }
@@ -275,10 +223,10 @@ body {
 .btn-universal {
   display: inline-block;
   padding: 15px 30px;
-  background: #25D366;
-  color: #000;
   font-size: 1.8rem;
   font-weight: bold;
+  color: #fff;
+  background: #ff0000;
   text-transform: uppercase;
   text-decoration: none;
   border-radius: 50px;
@@ -295,20 +243,9 @@ body {
 }
 
 @media (max-width: 768px) {
-  .foto-grande {
-    padding: 15px;
-  }
-  .foto-grande img {
-    width: 100%; /* Ocupa toda a largura disponível no mobile */
-    max-width: 300px; /* Limita ao tamanho do botão, ajustável */
-    height: auto; /* Mantém a proporção */
-  }
-  .btn-universal {
-    padding: 10px 20px;
-    font-size: 1rem;
-    max-width: 300px; /* Define um tamanho fixo para o botão */
-    width: 100%; /* Garante que o botão use a largura máxima */
-  }
+  .foto-grande { padding: 15px; }
+  .foto-grande img { width: 100%; max-width: 300px; height: auto; }
+  .btn-universal { padding: 10px 20px; font-size: 1rem; max-width: 300px; width: 100%; }
 }
 
 /* Seção Sobre o Curso */
@@ -361,16 +298,16 @@ body {
 }
 
 .sobre-curso .highlight { color: #fbc900; font-weight: bold; }
-.sobre-curso .price-old { text-decoration: line-through; color: #ff4d4d; }
+.sobre-curso .price-old { color: #ff4d4d; } /* Risco removido */
 .sobre-curso .price-new { font-size: 2.5rem; font-weight: bold; color: #25D366; }
 
 .sobre-curso .btn {
   display: inline-block;
-  padding: 20px 35px;
-  background: #25D366;
-  color: #000;
-  font-size: 2rem;
+  padding: 15px 30px;
+  font-size: 1.8rem;
   font-weight: bold;
+  color: #fff;
+  background: #ff0000;
   text-decoration: none;
   border-radius: 50px;
   transition: transform 0.3s ease;
@@ -451,7 +388,7 @@ body {
   position: relative;
   width: 100%;
   max-width: 800px;
-  height: 400px; /* Altura padrão em telas grandes */
+  height: 400px;
   margin: 0 auto;
   overflow: hidden;
 }
@@ -475,11 +412,11 @@ body {
 }
 
 .carousel-item img {
-  max-width: 500px; /* Largura máxima em telas grandes */
-  max-height: 400px; /* Altura máxima em telas grandes */
+  max-width: 500px;
+  max-height: 400px;
   width: auto;
   height: auto;
-  object-fit: contain; /* Imagem inteira, sem corte */
+  object-fit: contain;
   border-radius: 10px;
   border: 2px solid #ff0;
 }
@@ -489,14 +426,14 @@ body {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.5);
+  background: transparent; /* Fundo transparente */
   color: #fbc900;
   border: none;
   padding: 10px;
-  font-size: 50px;
+  font-size: 20px; /* Tamanho ajustado para texto */
+  font-weight: bold;
   cursor: pointer;
-  border-radius: 50%;
-  transition: background 0.3s ease;
+  transition: color 0.3s ease;
 }
 
 .carousel-prev { left: 10px; }
@@ -504,33 +441,16 @@ body {
 
 .carousel-prev:hover,
 .carousel-next:hover {
-  background: rgba(0, 0, 0, 0.8);
+  color: #fff; /* Mudança de cor ao passar o mouse */
 }
 
-/* Responsividade do Carrossel no Celular */
 @media (max-width: 768px) {
-  .alunos-formados {
-    padding: 30px 15px;
-    margin: 10px;
-  }
-  .alunos-formados h2 {
-    font-size: 1.8rem;
-  }
-  .carousel {
-    height: 300px; /* Altura reduzida no celular */
-    max-width: 100%; /* Usa toda a largura disponível */
-  }
-  .carousel-item img {
-    width: 100%; /* Ocupa a largura do contêiner */
-    max-width: 300px; /* Limite menor para caber na tela */
-    max-height: 280px; /* Altura ajustada para caber no contêiner */
-    height: auto;
-  }
+  .alunos-formados { padding: 30px 15px; margin: 10px; }
+  .alunos-formados h2 { font-size: 1.8rem; }
+  .carousel { height: 300px; max-width: 100%; }
+  .carousel-item img { width: 100%; max-width: 300px; max-height: 280px; height: auto; }
   .carousel-prev,
-  .carousel-next {
-    font-size: 30px; /* Botões menores no celular */
-    padding: 5px;
-  }
+  .carousel-next { font-size: 16px; padding: 5px; }
 }
 
 /* Seção Incentivo à Matrícula */
@@ -547,8 +467,10 @@ body {
   font-size: 3rem;
   margin-bottom: 20px;
   background-color: #ff0000;
-  font-weight: bolder;
-  color: #fbc900;
+  font-weight: 900; /* Mais forte */
+  color: #ffffff; /* Mais escuro */
+  font-family: 'Impact', sans-serif; /* Fonte mais larga */
+  text-transform: uppercase;
 }
 
 .incentivo-matricula p { font-size: 1.5rem; margin-bottom: 20px; }
@@ -558,7 +480,7 @@ body {
   font-size: 2rem;
   font-weight: bold;
   color: #000000;
-  background: #fff700;
+  background: #6aff00;
   padding: 10px 20px;
   border-radius: 10px;
   display: inline-block;
@@ -569,12 +491,12 @@ body {
 
 .btn-matricula {
   display: inline-block;
-  padding: 15px 30px;
-  background-color: #25D366;
-  color: #000;
   text-decoration: none;
+  padding: 15px 30px;
   font-size: 1.8rem;
   font-weight: bold;
+  color: #fff;
+  background: #ff0000;
   border-radius: 50px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
@@ -584,7 +506,6 @@ body {
 .btn-matricula:hover {
   transform: scale(1.5);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-  animation: pulse 1.5s infinite;
 }
 
 @media (max-width: 768px) {
@@ -607,6 +528,7 @@ body {
   margin-bottom: 20px;
   font-size: 2.5rem;
   color: #ffffff;
+  text-align: center; /* Título centralizado */
 }
 
 .faq-item { margin-bottom: 10px; }
@@ -697,7 +619,7 @@ body {
 .redes-sociais {
   text-align: center;
   padding: 20px;
-  background: rgba(255, 255, 255, 0.9);
+  background: #000; /* Fundo preto */
   margin: 20px;
   border-radius: 10px;
 }
@@ -705,52 +627,37 @@ body {
 .redes-sociais h2 {
   margin-bottom: 20px;
   font-size: 3rem;
-  color: #333;
+  color: #fff; /* Cor ajustada para fundo preto */
 }
 
-.social-icons {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap; /* Permite que os ícones quebrem em linhas */
-  gap: 20px;
+.social-list {
+  list-style: none;
+  padding: 0;
 }
 
-.social-icons a {
+.social-list li {
+  margin: 15px 0;
+}
+
+.social-list a {
   color: white;
-  font-size: 5rem;
+  font-size: 2rem;
   text-decoration: none;
-  transition: transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
-.social-icons a:hover {
-  transform: scale(1.5);
-}
+.social-list .whatsapp { color: #25D366; }
+.social-list .instagram { color: #E4405F; }
+.social-list .youtube { color: #FF0000; }
+.social-list .facebook { color: #1877F2; }
 
-.social-icons .fa-facebook { color: #1877F2; }
-.social-icons .fa-instagram { color: #E4405F; }
-.social-icons .fa-youtube { color: #FF0000; }
-.social-icons .fa-whatsapp { color: #25D366; }
-
-/* Responsividade no Celular */
 @media (max-width: 768px) {
-  .redes-sociais {
-    padding: 15px;
-  }
-  .redes-sociais h2 {
-    font-size: 1.2rem;
-  }
-  .social-icons {
-    display: flex;
-    flex-wrap: wrap; /* Garante que os ícones quebrem em linhas */
-    justify-content: center; /* Centraliza os pares */
-    gap: 15px; /* Reduz o espaçamento no mobile */
-    max-width: 100%; /* Usa a largura total disponível */
-  }
-  .social-icons a {
-    font-size: 3rem; /* Aumenta o tamanho dos ícones no celular */
-    flex: 0 0 calc(50% - 15px); /* Cada ícone ocupa metade da largura menos o gap */
-    text-align: center; /* Centraliza o ícone no espaço */
-  }
+  .redes-sociais { padding: 15px; }
+  .redes-sociais h2 { font-size: 1.2rem; }
+  .social-list a { font-size: 1.5rem; }
 }
 
 /* Rodapé */
