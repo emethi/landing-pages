@@ -679,6 +679,9 @@ body {
 .social-list {
   list-style: none;
   padding: 0;
+  display: flex; /* Adiciona Flexbox para centralizar os itens */
+  flex-direction: column; /* Mantém os itens em coluna */
+  align-items: center; /* Centraliza os <li> horizontalmente */
 }
 
 .social-list li {
@@ -689,12 +692,14 @@ body {
   color: white;
   font-size: 2rem;
   text-decoration: none;
-  display:inline-block;
+  display: flex; /* Flex para alinhar ícone e texto */
   align-items: center;
-  justify-content: center;
+  justify-content: center; /* Centraliza ícone e texto horizontalmente */
   gap: 10px;
-  padding: 5px 60px; /* Adiciona padding para melhor aparência */
-  border-radius: 25px; /* Arredonda as bordas */
+  padding: 10px 0; /* Padding ajustado */
+  width: 300px; /* Largura fixa para todos os botões */
+  height: 50px; /* Altura fixa para todos os botões */
+  box-sizing: border-box; /* Inclui padding e borda na largura/altura */
 }
 
 /* Gradientes */
@@ -721,6 +726,9 @@ body {
 /* Estilos para ícones */
 .social-list i {
   font-size: 3rem; /* Ajuste o tamanho dos ícones */
+  display: flex; /* Flex para centralizar o ícone */
+  align-items: center; /* Centraliza verticalmente o ícone */
+  justify-content: center; /* Centraliza horizontalmente o ícone */
 }
 
 @media (max-width: 768px) {
@@ -734,6 +742,12 @@ body {
 
   .social-list a {
       font-size: 1.6rem;
+      width: 250px; /* Largura ajustada para telas menores */
+      height: 40px; /* Altura ajustada para telas menores */
+  }
+
+  .social-list i {
+      font-size: 2.5rem; /* Tamanho dos ícones ajustado */
   }
 }
 
