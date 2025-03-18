@@ -200,9 +200,9 @@ body {
 
 @media (max-width: 768px) {
   .video { padding: 30px 15px; }
-  .video h1 { font-size: 2rem; }
-  .video h2 { font-size: 1.5rem; }
-  .video .hero-button { font-size: 1.5rem; padding: 10px 20px; }
+  .video h1 { font-size: 1.3rem; }
+  .video h2 { font-size: 1rem; }
+  .video .hero-button { font-size: 1rem; padding: 10px 20px; }
 }
 
 /* Seção Foto Grande */
