@@ -11,6 +11,9 @@ body {
   color: #333;
   background: linear-gradient(135deg, #006400, #FFD700, #00008B);
 }
+
+/*CABEÇALHO*/
+
 .cabecalho {
   position: fixed;
   top: 0;
@@ -31,8 +34,8 @@ body {
   margin-left: 40px;
   margin-top: 0;
   margin-bottom: 0;
-  display: flex; /* Adiciona display flex ao logo */
-  align-items: center; /* Centraliza verticalmente os itens dentro do logo */
+  display: flex;
+  align-items: center;
 }
 
 .logo-img {
@@ -46,6 +49,27 @@ body {
   font-weight: bold;
   font-size: 2.5em;
 }
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+  .logo-img {
+    max-width: 60px; /* Reduz o tamanho da logo */
+  }
+
+  .logo-texto {
+    font-size: 1.8em; /* Reduz o tamanho do texto */
+    margin-left: 10px; /* Reduz a margem entre a logo e o texto */
+  }
+
+  .logo {
+    margin-left: 10px; /* Reduz a margem da logo para a esquerda */
+  }
+
+  .cabecalho {
+    padding: 5px 10px; /* Reduz o padding do cabeçalho */
+  }
+}
+
 
 /*MENU*/
 .menu-toggle {
@@ -701,15 +725,15 @@ body {
 
 @media (max-width: 768px) {
   .redes-sociais {
-      padding: 15px;
+      padding: 12px;
   }
 
   .redes-sociais h2 {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
   }
 
   .social-list a {
-      font-size: 1.5rem;
+      font-size: 1.2rem;
   }
 }
 
