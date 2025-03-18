@@ -11,8 +11,6 @@ body {
   color: #333;
   background: linear-gradient(135deg, #006400, #FFD700, #00008B);
 }
-
-/* Cabeçalho */
 .cabecalho {
   position: fixed;
   top: 0;
@@ -29,14 +27,27 @@ body {
 
 .logo {
   flex: 1;
-  text-align: center;
+  text-align: left;
+  margin-left: 40px;
+  margin-top: 0;
+  margin-bottom: 0;
+  display: flex; /* Adiciona display flex ao logo */
+  align-items: center; /* Centraliza verticalmente os itens dentro do logo */
 }
 
 .logo-img {
-  max-width: 100px;
+  max-width: 90px;
   height: auto;
 }
 
+.logo-texto {
+  margin-left: 20px;
+  font-family: 'Arial Narrow', sans-serif;
+  font-weight: bold;
+  font-size: 2.5em;
+}
+
+/*MENU*/
 .menu-toggle {
   background: none;
   border: none;
@@ -46,6 +57,8 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
+  margin-right: 20PX;
+  
 }
 
 .hamburger {
@@ -95,6 +108,7 @@ body {
   transition: right 0.3s ease;
   padding-top: 60px;
   z-index: 1001;
+
 }
 
 .menu-lateral.active {
@@ -104,18 +118,21 @@ body {
 .menu-lateral ul {
   list-style: none;
   padding-left: 20px;
+  padding-top: 40px;
 }
 
 .menu-lateral ul li {
-  margin: 10px 0;
+  margin: 10px 10PX;
 }
 
 .menu-lateral ul li a {
   color: #ffffff;
-  font-weight: bold;
+  /*font-weight: bold;*/
   text-decoration: none;
   font-size: 23px;
   transition: text-decoration 0.3s ease;
+  font-family: 'Arial Narrow', sans-serif;
+  
 }
 
 .menu-lateral ul li a:hover {
@@ -542,11 +559,12 @@ body {
   text-align: left;
   cursor: pointer;
   border-radius: 5px;
-  font-size: 1.4rem;
+  font-size: 1.7rem;
   font-weight: bold;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .faq-answer {
@@ -555,19 +573,23 @@ body {
   display: none;
   border-radius: 5px;
   margin-top: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.7rem;
+  font-weight: bold;
 }
 
 .faq-icon {
   font-size: 1.8rem;
   font-weight: bold;
   color: #000;
+  
 }
 
 @media (max-width: 768px) {
   .faq { padding: 30px 15px; }
-  .faq h2 { font-size: 1.5rem; }
-  .faq-question { font-size: 0.9rem; }
-  .faq-answer { font-size: 0.8rem; }
+  .faq h2 { font-size: 1.8rem; }
+  .faq-question { font-size: 1.2rem; }
+  .faq-answer { font-size: 1.2rem; }
 }
 
 /* Seção Sobre Nós */
@@ -619,7 +641,7 @@ body {
 .redes-sociais {
   text-align: center;
   padding: 20px;
-  background: #000; /* Fundo preto */
+  background: #000;
   margin: 20px;
   border-radius: 10px;
 }
@@ -627,7 +649,7 @@ body {
 .redes-sociais h2 {
   margin-bottom: 20px;
   font-size: 3rem;
-  color: #fff; /* Cor ajustada para fundo preto */
+  color: #fff;
 }
 
 .social-list {
@@ -643,21 +665,52 @@ body {
   color: white;
   font-size: 2rem;
   text-decoration: none;
-  display: flex;
+  display:inline-block;
   align-items: center;
   justify-content: center;
   gap: 10px;
+  padding: 5px 60px; /* Adiciona padding para melhor aparência */
+  border-radius: 25px; /* Arredonda as bordas */
 }
 
-.social-list .whatsapp { color: #25D366; }
-.social-list .instagram { color: #E4405F; }
-.social-list .youtube { color: #FF0000; }
-.social-list .facebook { color: #1877F2; }
+/* Gradientes */
+.social-list .whatsapp {
+  background: linear-gradient(to right, #128C7E, #25D366);
+  color: white;
+}
+
+.social-list .instagram {
+  background: linear-gradient(to right, #FCAF45, #E1306C, #5B51D8);
+  color: white;
+}
+
+.social-list .youtube {
+  background: linear-gradient(to right, #C4302B, #E52D27);
+  color: white;
+}
+
+.social-list .facebook {
+  background: linear-gradient(to right, #1877F2, #3A86FF);
+  color: white;
+}
+
+/* Estilos para ícones */
+.social-list i {
+  font-size: 3rem; /* Ajuste o tamanho dos ícones */
+}
 
 @media (max-width: 768px) {
-  .redes-sociais { padding: 15px; }
-  .redes-sociais h2 { font-size: 1.2rem; }
-  .social-list a { font-size: 1.5rem; }
+  .redes-sociais {
+      padding: 15px;
+  }
+
+  .redes-sociais h2 {
+      font-size: 1.2rem;
+  }
+
+  .social-list a {
+      font-size: 1.5rem;
+  }
 }
 
 /* Rodapé */
