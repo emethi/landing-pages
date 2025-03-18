@@ -240,9 +240,9 @@ body {
 .video .hero-button:hover { background: #cc0000; }
 
 @media (max-width: 768px) {
-  .video { padding: 30px 15px; }
+  .video { padding: 20px 10px; }
   .video h1 { font-size: 1.3rem; }
-  .video h2 { font-size: 1rem; }
+  .video h2 { font-size: 1.2rem; }
   .video .hero-button { font-size: 1rem; padding: 10px 20px; }
 }
 
