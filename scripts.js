@@ -23,6 +23,7 @@ function toggleMenu() {
 menuToggle.addEventListener('click', toggleMenu);
 menuToggleInterno.addEventListener('click', toggleMenu);
 
+// Fechar o menu ao clicar fora dele
 document.addEventListener('click', (event) => {
   const isClickInsideMenu = menuLateral.contains(event.target);
   const isClickOnToggle = menuToggle.contains(event.target);
@@ -33,6 +34,16 @@ document.addEventListener('click', (event) => {
     menuToggle.setAttribute('aria-expanded', false);
     menuToggleInterno.setAttribute('aria-expanded', false);
   }
+});
+
+// Fechar o menu ao clicar em um link
+const menuLinks = document.querySelectorAll('.menu-lateral a');
+menuLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    if (menuLateral.classList.contains('active')) {
+      toggleMenu();
+    }
+  });
 });
 
 // FAQ e Scroll ao carregar
@@ -53,62 +64,62 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-  AOS.init()
+AOS.init();
 
-  // Carrossel Alunos Formados
-  const carousel = document.querySelector('.carousel');
-  const carouselInner = document.querySelector('.carousel-inner');
-  const items = document.querySelectorAll('.carousel-item');
-  const prevBtn = document.querySelector('.carousel-prev');
-  const nextBtn = document.querySelector('.carousel-next');
-  let currentIndex = 0;
-  let startX = 0;
-  let isDragging = false;
+// Carrossel Alunos Formados
+const carousel = document.querySelector('.carousel');
+const carouselInner = document.querySelector('.carousel-inner');
+const items = document.querySelectorAll('.carousel-item');
+const prevBtn = document.querySelector('.carousel-prev');
+const nextBtn = document.querySelector('.carousel-next');
+let currentIndex = 0;
+let startX = 0;
+let isDragging = false;
 
-  function showSlide(index) {
-    items.forEach((item, i) => {
-      item.classList.toggle('active', i === index);
-    });
-  }
-
-  function nextSlide() {
-    currentIndex = (currentIndex + 1) % items.length;
-    showSlide(currentIndex);
-  }
-
-  function prevSlide() {
-    currentIndex = (currentIndex - 1 + items.length) % items.length;
-    showSlide(currentIndex);
-  }
-
-  // Botões
-  prevBtn.addEventListener('click', prevSlide);
-  nextBtn.addEventListener('click', nextSlide);
-
-  // Eventos de toque
-  carousel.addEventListener('touchstart', (e) => {
-    startX = e.touches[0].clientX;
-    isDragging = true;
+function showSlide(index) {
+  items.forEach((item, i) => {
+    item.classList.toggle('active', i === index);
   });
+}
 
-  carousel.addEventListener('touchmove', (e) => {
-    if (!isDragging) return;
-    const currentX = e.touches[0].clientX;
-    const diffX = startX - currentX;
-
-    // Define o limite de movimento para considerar um swipe
-    if (diffX > 50) {
-      nextSlide();
-      isDragging = false;
-    } else if (diffX < -50) {
-      prevSlide();
-      isDragging = false;
-    }
-  });
-
-  carousel.addEventListener('touchend', () => {
-    isDragging = false;
-  });
-
-  // Mostra o primeiro slide ao carregar
+function nextSlide() {
+  currentIndex = (currentIndex + 1) % items.length;
   showSlide(currentIndex);
+}
+
+function prevSlide() {
+  currentIndex = (currentIndex - 1 + items.length) % items.length;
+  showSlide(currentIndex);
+}
+
+// Botões
+prevBtn.addEventListener('click', prevSlide);
+nextBtn.addEventListener('click', nextSlide);
+
+// Eventos de toque
+carousel.addEventListener('touchstart', (e) => {
+  startX = e.touches[0].clientX;
+  isDragging = true;
+});
+
+carousel.addEventListener('touchmove', (e) => {
+  if (!isDragging) return;
+  const currentX = e.touches[0].clientX;
+  const diffX = startX - currentX;
+
+  // Define o limite de movimento para considerar um swipe
+  if (diffX > 50) {
+    nextSlide();
+    isDragging = false;
+  } else if (diffX < -50) {
+    prevSlide();
+    isDragging = false;
+  }
+});
+
+carousel.addEventListener('touchend', () => {
+  isDragging = false;
+});
+
+// Mostra o primeiro slide ao carregar
+showSlide(currentIndex);
