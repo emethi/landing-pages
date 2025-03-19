@@ -286,7 +286,7 @@ body {
 @media (max-width: 768px) {
   .foto-grande { padding: 15px; }
   .foto-grande img { width: 100%; max-width: 300px; height: auto; }
-  .btn-universal { padding: 10px 20px; font-size: 1rem; max-width: 300px; width: 100%; }
+  .btn-universal { font-size: 1rem; padding: 10px 20px; }
 }
 
 /* Seção Sobre o Curso */
@@ -697,7 +697,7 @@ body {
   justify-content: center; /* Centraliza ícone e texto horizontalmente */
   gap: 10px;
   padding: 10px 0; /* Padding ajustado */
-  width: 300px; /* Largura fixa para todos os botões */
+  width: 200px; /* Largura fixa para todos os botões */
   height: 50px; /* Altura fixa para todos os botões */
   box-sizing: border-box; /* Inclui padding e borda na largura/altura */
 }
