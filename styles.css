@@ -742,7 +742,7 @@ body {
 
   .social-list a {
       font-size: 1.6rem;
-      width: 200px; /* Largura ajustada para telas menores */
+      width: 160px; /* Largura ajustada para telas menores */
       height: 40px; /* Altura ajustada para telas menores */
   }
 
